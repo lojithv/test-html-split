@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Page Title</title>
+    <!-- Add your common CSS stylesheets, meta tags, etc. here -->
+</head>
+<body>
+    <header>
+        <!-- Your header content goes here -->
+        <h1>Welcome to My Website</h1>
+        <nav>
+            <!-- Navigation links, menu, etc. -->
+        </nav>
+    </header>
+
+    <main id="contentSection"></main>
+    <footer id="footerSection"></footer>
+
+    <script>
+        // Function to load external HTML file using fetch API
+        function loadSection(sectionId, filePath) {
+            fetch(filePath)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(sectionId).innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading section:', error);
+                });
+        }
+
+        // Load the header, content, and footer sections
+        loadSection('contentSection', 'content.html');
+        loadSection('footerSection', 'footer.html');
+    </script>
+</body>
+</html>
